@@ -1,8 +1,3 @@
-setwd("~/Desktop/brainblots/lissajous")
-
-## Inspired by -- The Dadaist artist Max Ernst 
-## painted Lissajous figures directly by swinging a punctured bucket of paint over a canvas
-
 ##---- LIBRARY
 
 library(dplyr)
@@ -26,7 +21,6 @@ n=100
 
 df <- 1:n %>% map_df(~lj(a = runif(1, 0, 10), A = runif(1, 0, 1)), .id = "id")
 
-## 10, 5, 1, 0.5, 0.1, (0.01*pi = 0.0314)
 
 ##---- PLOT
 
@@ -35,7 +29,6 @@ p <- ggplot() +
   facet_wrap(~id, nrow = sqrt(n)) +
   coord_equal() +
   theme_blankcanvas(margin_cm = 0.75)
-p
 
 # save the plot
 ggsave("lj006.png", p, width = 20, height = 20, units = "cm", dpi = 300)
